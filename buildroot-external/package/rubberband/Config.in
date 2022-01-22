@@ -1,0 +1,5 @@
+config BR2_PACKAGE_RUBBERBAND
+	bool "rubberband"
+
+	help
+		audio time-stretching and pitch-shifting library

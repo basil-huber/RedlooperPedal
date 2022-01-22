@@ -1,0 +1,69 @@
+From 068a1856db58b722e887f7da31f9d835ea777c49 Mon Sep 17 00:00:00 2001
+From: Basil Huber <basil.huber@gmail.com>
+Date: Sat, 22 Jan 2022 12:35:31 +0100
+Subject: [PATCH 1/2] Build: Removed check for CoreMIDI for cross-compilation
+
+---
+ configure.ac             | 16 ++++++++++------
+ libs/midi++/configure.ac | 17 +++++++++++------
+ 2 files changed, 21 insertions(+), 12 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index e2d8fb8..4277ee5 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -340,13 +340,17 @@ then
+                          AC_DEFINE([WITH_ALSA], 1, [Have ALSA Headers])],
+                          use_alsa_midi=no)
+         AM_CONDITIONAL(WITH_ALSA, test x$use_alsa_midi = xyes)
++        if test "$cross_compiling" = no; then
++            dnl  AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework/Headers/CoreMIDI.h,
++                AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework,       
++                  [use_coremidi=yes
++                   AUDIO_LIBS="-framework CoreMIDI -framework CoreFoundation -framework CoreServices -framework ApplicationServices -framework Accelerate"
++                   AC_DEFINE([WITH_COREMIDI], 1, [Have CoreMIDI Headers])],
++                   use_coremidi=no)
++        else
++            use_coremidi=no
++        fi
+ 
+-      dnl  AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework/Headers/CoreMIDI.h, 
+-	AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework,       
+-                      [use_coremidi=yes
+-                       AUDIO_LIBS="-framework CoreMIDI -framework CoreFoundation -framework CoreServices -framework ApplicationServices -framework Accelerate"
+-                       AC_DEFINE([WITH_COREMIDI], 1, [Have CoreMIDI Headers])],
+-                       use_coremidi=no)
+         AM_CONDITIONAL(WITH_COREMIDI, test x$use_coremidi = xyes)
+         AC_SUBST(AUDIO_LIBS)
+ 
+diff --git a/libs/midi++/configure.ac b/libs/midi++/configure.ac
+index 7b729d3..c8770cb 100644
+--- a/libs/midi++/configure.ac
++++ b/libs/midi++/configure.ac
+@@ -212,12 +212,17 @@ AC_CHECK_HEADER(alsa/asoundlib.h,
+ 	use_alsa_midi=no)
+ AM_CONDITIONAL(WITH_ALSA, test x$use_alsa_midi = xyes)
+ 
+-dnl AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework/Headers/CoreMIDI.h, 
+-AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework, 
+-		[use_coremidi=yes
+-		AUDIO_LIBS="-framework CoreMIDI"
+-		AC_DEFINE([WITH_COREMIDI], 1, [Have CoreMIDI Headers])],
+-	use_coremidi=no)
++if test "$cross_compiling" = no; then
++    dnl AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework/Headers/CoreMIDI.h, 
++    AC_CHECK_FILE(/System/Library/Frameworks/CoreMIDI.framework, 
++    		[use_coremidi=yes
++    		AUDIO_LIBS="-framework CoreMIDI"
++    		AC_DEFINE([WITH_COREMIDI], 1, [Have CoreMIDI Headers])],
++    	use_coremidi=no)
++else
++    use_coremidi=no
++fi
++
+ AM_CONDITIONAL(WITH_COREMIDI, test x$use_coremidi = xyes)
+ 
+ AC_SUBST(AUDIO_LIBS)
+-- 
+2.25.1
+

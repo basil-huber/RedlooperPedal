@@ -1,0 +1,14 @@
+config BR2_PACKAGE_SOOPERLOOPER
+	bool "sooperlooper"
+	select BR2_PACKAGE_LIBLO
+	select BR2_PACKAGE_LIBSIGC
+	select BR2_PACKAGE_LIBXML2
+	select BR2_PACKAGE_LIBSNDFILE
+	select BR2_PACKAGE_NCURSES
+	select BR2_PACKAGE_JACK2
+	select BR2_PACKAGE_FFTW
+	select BR2_PACKAGE_RUBBERBAND
+	select BR2_PACKAGE_MUSL_FTS
+	select BR2_PACKAGE_LIBSIGC2
+	help
+		SooperLooper -- Live Looping Sampler
