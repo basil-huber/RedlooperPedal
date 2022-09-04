@@ -1,2 +1,4 @@
 .idea
 buildroot-external/board/redlooper/rootfs_overlay/etc/wpa_supplicant.conf
+buildroot-external/board/redlooper/rootfs_overlay/root/.ssh/authorized_keys
+buildroot-external/board/redlooper/rootfs_overlay/etc/dropbear/dropbear_ed25519_host_key
