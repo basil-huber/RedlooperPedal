@@ -28,6 +28,7 @@ scp root@<DEVICE_IP>:/etc/dropbear/dropbear_ed25519_host_key buildroot-external/
 
 # Ressources
 https://krenzlin.github.io/AKTpi/
+Display: https://github.com/adafruit/Raspberry-Pi-Installer-Scripts/blob/a779800e50551c4ec48f3c7aae31a53b6011b9eb/adafruit-pitft.py
 
 # Misc
 dtparam=audio=on
