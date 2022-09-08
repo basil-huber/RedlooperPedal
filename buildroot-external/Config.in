@@ -4,4 +4,7 @@ source "$BR2_EXTERNAL_REDLOOPER_PATH/package/rubberband/Config.in"
 source "$BR2_EXTERNAL_REDLOOPER_PATH/package/libsigc2/Config.in"
 endmenu
 
+source "$BR2_EXTERNAL_REDLOOPER_PATH/package/python-redlooper-app/Config.in"
+source "$BR2_EXTERNAL_REDLOOPER_PATH/package/python-pyliblo/Config.in"
+source "$BR2_EXTERNAL_REDLOOPER_PATH/package/python-jackclient/Config.in"
 source "$BR2_EXTERNAL_REDLOOPER_PATH/package/python-pygame-gui/Config.in"
