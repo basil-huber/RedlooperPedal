@@ -30,3 +30,13 @@ dtoverlay=miniuart-bt
 dtoverlay=krnbt=on
 
 dtparam=audio=on
+
+# --- added by adafruit-pitft-helper Tue Sep  6 15:28:14 2022 ---
+[all]
+hdmi_force_hotplug=0
+dtparam=spi=on
+dtparam=i2c1=on
+dtparam=i2c_arm=on
+dtoverlay=pitft35-resistive,rotate=270,speed=20000000,fps=20
+# --- end adafruit-pitft-helper Tue Sep  6 15:28:14 2022 --
+
