@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_PYLIBLO
+	bool "python-pyliblo"
+	select BR2_PACKAGE_PYTHON3_CYTHON # runtime
+	select BR2_PACKAGE_HOST_PYTHON_CYTHON
+	help
+	  pyliblo - Python bindings for the liblo OSC library
+
+	  Python bindings for the liblo OSC library

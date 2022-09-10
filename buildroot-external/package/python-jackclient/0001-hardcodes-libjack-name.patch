@@ -1,0 +1,28 @@
+From e8f2616423cb5494661782b711c4a041c9d0cbfc Mon Sep 17 00:00:00 2001
+From: basil-huber <basil.huber@gmail.com>
+Date: Fri, 9 Sep 2022 00:23:49 +0200
+Subject: [PATCH 1/1] hardcodes libjack name
+
+This allows to find libjack on systems where find_library does not work
+
+Signed-off-by: basil-huber <basil.huber@gmail.com>
+---
+ src/jack.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/jack.py b/src/jack.py
+index 3501bdc..8890445 100644
+--- a/src/jack.py
++++ b/src/jack.py
+@@ -39,6 +39,8 @@ if _platform.system() == 'Windows':
+         _libname = _find_library('libjack')
+ else:
+     _libname = _find_library('jack')
++    if not _libname:
++        _libname = 'libjack.so'
+ 
+ if _libname is None:
+     raise OSError('JACK library not found')
+-- 
+2.34.1
+

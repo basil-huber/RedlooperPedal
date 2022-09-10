@@ -1,0 +1,10 @@
+config BR2_PACKAGE_PYTHON_JACKCLIENT
+	bool "python-jackclient"
+	select BR2_PACKAGE_PYTHON3_CFFI
+	select BR2_PACKAGE_PYTHON_CFFI
+
+
+	help
+	  JACK Audio Connection Kit (JACK) Client for Python
+
+	  This Python module (named jack) provides bindings for the JACK library.

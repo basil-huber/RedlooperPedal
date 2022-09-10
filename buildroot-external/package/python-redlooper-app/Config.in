@@ -1,0 +1,13 @@
+config BR2_PACKAGE_PYTHON_REDLOOPER_APP
+	bool "python-redlooper-app"
+	select BR2_PACKAGE_PYTHON_PYGAME # runtime
+	select BR2_PACKAGE_PYTHON_PYGAME_FONT
+	select BR2_PACKAGE_SOOPERLOOPER
+	select BR2_PACKAGE_PYTHON_PYLIBLO
+	select BR2_PACKAGE_PYTHON_JACKCLIENT
+	select BR2_PACKAGE_PYTHON_RPI_GPIO
+
+	help
+	  GUI application for the Redlooper
+
+	  Provides a GUI for the looper as well as connecting to the buttons

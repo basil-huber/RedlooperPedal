@@ -8,3 +8,4 @@
 # <name>				<type>	<mode>	<uid>	<gid>	<major>	<minor>	<start>	<inc>	<count>
 /etc/init.d/S10audio-modules		f	755	0	0	-	-	-	-	-
 /etc/init.d/S39wifi-driver		f	755	0	0	-	-	-	-	-
+/etc/init.d/S55redlooper-app		f	755	0	0	-	-	-	-	-
