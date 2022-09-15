@@ -37,7 +37,7 @@ BR2_TARGET_ROOTFS_EXT2_4=y
 BR2_TARGET_ROOTFS_EXT2_SIZE="120M"
 # BR2_TARGET_ROOTFS_TAR is not set
 BR2_ROOTFS_POST_BUILD_SCRIPT="board/raspberrypi4/post-build.sh"
-BR2_ROOTFS_POST_IMAGE_SCRIPT="board/raspberrypi4/post-image.sh"
+#BR2_ROOTFS_POST_IMAGE_SCRIPT="board/raspberrypi4/post-image.sh"
 
 
 ##############################################################
@@ -66,6 +66,8 @@ BR2_PACKAGE_PYTHON_REDLOOPER_APP=y
 BR2_PACKAGE_PYTHON3=y
 
 BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE="$(BR2_EXTERNAL_REDLOOPER_PATH)/board/redlooper/config.txt"
+BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL_REDLOOPER_PATH)/board/redlooper/post-image.sh"
+BR2_PACKAGE_HOST_GENEXT2FS=y
 
 BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_REDLOOPER_PATH)/board/redlooper/rootfs_overlay"
 
