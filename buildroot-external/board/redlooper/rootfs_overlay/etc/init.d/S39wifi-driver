@@ -1,4 +1,4 @@
 #!/bin/sh
 
 modprobe brcmfmac  # load raspberry wifi driver
-
+sleep 5  # give wifi driver some time before starting the network. Ugly, I know
